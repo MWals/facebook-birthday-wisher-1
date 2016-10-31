@@ -1,0 +1,32 @@
+{
+  "name": "Browser Automation Toolkit",
+  "description": "A Chrome Extension to automate data population for websites",
+  "version": "3.5.6",
+  "browser_action": {
+    "default_icon": "img/logo.png"
+  },
+   "permissions": [
+       "contextMenus", "tabs", "<all_urls>", "activeTab", "webNavigation", "storage", "unlimitedStorage"
+  ],
+  "background": {
+    "scripts": ["background_scripts/extension.js"]
+  }, 
+    "icons": {
+          "16": "img/logo.png",
+          "48": "img/logo.png",
+          "128": "img/logo.png"
+        },
+
+   "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_scripts/jquery.js", "content_scripts/xpath.js", "content_scripts/listener.js"],
+	  "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    "scripts/*.*"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "manifest_version": 2
+}
