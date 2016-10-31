@@ -1,7 +1,7 @@
 {
-  "name": "Browser Automation Toolkit",
+  "name": "Facebook Birthday Wisher",
   "description": "A Chrome Extension to automate data population for websites",
-  "version": "3.5.6",
+  "version": "1.0.0",
   "browser_action": {
     "default_icon": "img/logo.png"
   },
@@ -20,7 +20,7 @@
    "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content_scripts/jquery.js", "content_scripts/xpath.js", "content_scripts/listener.js"],
+      "js": ["content_scripts/jquery.js", "content_scripts/listener.js"],
 	  "run_at": "document_start"
     }
   ],

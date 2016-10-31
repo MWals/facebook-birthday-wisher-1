@@ -1,14 +1,14 @@
 {
-  "name": "browserAutomationToolkit",
-  "description": "A Chrome Extension to automate data population for websites",
-  "version": "3.5.6",
+  "name": "facebook-birthday-wisher",
+  "description": "A Chrome Extension to automatically wish your friends on their birthdays.",
+  "version": "1.0.0",
   "author": "Kenneth John (@kensplanet)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kensplanet/browser-automation-toolkit"
+    "url": "https://github.com/kensplanet/facebook-birthday-wisher"
   },
   "bugs": {
-    "url": "https://github.com/kensplanet/browser-automation-toolkit/issues"
+    "url": "https://github.com/kensplanet/facebook-birthday-wisher/issues"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
