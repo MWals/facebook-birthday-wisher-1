@@ -10,6 +10,8 @@ $(document).ready(function () {
 				$(birthdayWish).val('Many many happy returns of the day...');
 				$(birthdayForm).find('input.mentionsHidden').val('Many many happy returns of the day...');
 				$('body').append('<script>var http = new XMLHttpRequest();var url = "' + birthdayForm.action + '";var params = "' + $(birthdayForm).serialize() + '";http.open("POST", url, true);http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");http.send(params);</script>');
+				$(birthdayForm).append('<b style="color: green">Wished</b>');
+				$(birthdayWish).attr('disabled', 'true');
 			}
 		});
 	};
