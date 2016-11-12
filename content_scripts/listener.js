@@ -1,20 +1,44 @@
 $(document).ready(function () {
 
-	//Facebook listener (Interval is 1 sec)
-	var facebookListener = function () {
+    //Facebook listener (Interval is 5 sec)
+    var facebookListener = function () {
 
-		var birthdayWishes = $("textarea[title='Write a birthday wish on his Timeline...'], textarea[title='Write a birthday wish on her Timeline...']");
-		$.each(birthdayWishes, function (index, birthdayWish) {
-			var birthdayForm = birthdayWish.closest('form.uiStreamInlineAction');
-			if ($(birthdayWish).val().trim().length == 0) {
-				$(birthdayWish).val('Many many happy returns of the day...');
-				$(birthdayForm).find('input.mentionsHidden').val('Many many happy returns of the day...');
-				$('body').append('<script>var http = new XMLHttpRequest();var url = "' + birthdayForm.action + '";var params = "' + $(birthdayForm).serialize() + '";http.open("POST", url, true);http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");http.send(params);</script>');
-				$(birthdayForm).append('<b style="color: green">Wished</b>');
-				$(birthdayWish).attr('disabled', 'true');
-			}
-		});
-	};
-	setInterval(facebookListener, 1000);
+        chrome.storage.local.get("facebookBirthdays", function (data) {
+            if (typeof data.facebookBirthdays !== 'undefined' && data.facebookBirthdays) {
+                if (data.facebookBirthdays.indexOf(new Date().toDateString()) == -1) {
+
+                    if (!localStorage.lastOpened || (new Date().getTime() - localStorage.lastOpened >= 3600000)) {
+                        window.open('https://www.facebook.com/events/birthdays');
+                        localStorage.lastOpened = new Date().getTime();
+                    }
+
+                    if (window.location.href === 'https://www.facebook.com/events/birthdays') {
+                        var birthdayWishes = $("textarea[title='Write a birthday wish on his Timeline...'], textarea[title='Write a birthday wish on her Timeline...']");
+                        $.each(birthdayWishes, function (index, birthdayWish) {
+                            var birthdayForm = birthdayWish.closest('form.uiStreamInlineAction');
+                            if ($(birthdayWish).val().trim().length == 0) {
+                                $(birthdayWish).val('Many many happy returns of the day...');
+                                $(birthdayForm).find('input.mentionsHidden').val('Many many happy returns of the day...');
+                                $('body').append('<script>var http = new XMLHttpRequest();var url = "' + birthdayForm.action + '";var params = "' + $(birthdayForm).serialize() + '";http.open("POST", url, true);http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");http.send(params);</script>');
+                                $(birthdayForm).append('<b style="color: green">Wished</b>');
+                                $(birthdayWish).attr('disabled', 'true');
+                            }
+                        });
+                        data.facebookBirthdays.push(new Date().toDateString());
+                        chrome.storage.local.set({
+                            'facebookBirthdays': data.facebookBirthdays
+                        }, function () {
+                        });
+                    }
+                }
+            } else {
+                chrome.storage.local.set({
+                    'facebookBirthdays': []
+                }, function () {
+                });
+            }
+        });
+    };
+    setInterval(facebookListener, 5000);
 });
 
