@@ -4,7 +4,7 @@ import {Component} from 'angular2/core';
     selector: 'my-app',
     template: `
         <h1>Facebook Birthday Wisher</h1>
-        <button>Wish Birthdays</button>
+        <a target="_blank" href="https://www.facebook.com/events/birthdays"><button>Wish Birthdays</button></a>
     `,
 })
 export class AppComponent {
