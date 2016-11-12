@@ -1,5 +1,5 @@
 chrome.browserAction.onClicked.addListener(function(tab) {
-  chrome.tabs.create({'url': 'https://www.facebook.com/events/birthdays'}, function(tab) {
+  chrome.tabs.create({'url': chrome.extension.getURL('index.html')}, function(tab) {
     // Tab opened.
   });
 });
