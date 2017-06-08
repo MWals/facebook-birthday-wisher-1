@@ -3,18 +3,18 @@
   "description": "A Chrome Extension to automatically wish your friends on their birthdays.",
   "version": "2.0.0",
   "browser_action": {
-    "default_icon": "img/logo.png"
+    "default_icon": "logo.png"
   },
    "permissions": [
        "contextMenus", "tabs", "<all_urls>", "activeTab", "webNavigation", "storage", "unlimitedStorage"
   ],
   "background": {
     "scripts": ["background_scripts/extension.js"]
-  }, 
+  },
     "icons": {
-          "16": "img/logo.png",
-          "48": "img/logo.png",
-          "128": "img/logo.png"
+          "16": "logo.png",
+          "48": "logo.png",
+          "128": "logo.png"
         },
 
    "content_scripts": [
