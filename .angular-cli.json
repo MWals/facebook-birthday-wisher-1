@@ -9,10 +9,10 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        { "glob": "logo.png", "input": "../", "output": "." },
-        { "glob": "manifest.json", "input": "../", "output": "." },
-        { "glob": "background_scripts", "input": "../", "output": "." },
-        { "glob": "content_scripts", "input": "../", "output": "." }
+        "background_scripts",
+        "content_scripts",
+        "logo.png",
+        "manifest.json"
       ],
       "index": "index.html",
       "main": "main.ts",
