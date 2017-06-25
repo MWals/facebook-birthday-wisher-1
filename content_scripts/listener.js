@@ -1,15 +1,5 @@
 $(document).ready(function () {
 
-  var getBirthdayMessage = function () {
-
-    var birthdayMessages = [
-      'May your birthday be filled with many happy hours and your life with many happy birthdays. HAPPY BIRTHDAY !!',
-      'Many many happy returns of the day...',
-      'Well, you are another year older and you haven\'t changed a bit. That\'s great because you are perfect just the way you are. Happy Birthday.'
-    ];
-    return birthdayMessages[parseInt(Math.random() * birthdayMessages.length)];
-  };
-
   //Facebook listener (Interval is 5 sec)
   var facebookListener = function () {
 
