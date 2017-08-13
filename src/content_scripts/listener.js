@@ -6,14 +6,12 @@ $(document).ready(function () {
     chrome.storage.local.get("facebookBirthdays", function (data) {
       if (typeof data.facebookBirthdays !== 'undefined' && data.facebookBirthdays) {
         if (data.facebookBirthdays.indexOf(new Date().toDateString()) == -1) {
-
-          window.open('https://www.facebook.com/events/birthdays');
           data.facebookBirthdays.push(new Date().toDateString());
-
           chrome.storage.local.set({
             'facebookBirthdays': data.facebookBirthdays
           }, function () {
           });
+          window.open('https://www.facebook.com/events/birthdays');
         }
       } else {
         chrome.storage.local.set({
