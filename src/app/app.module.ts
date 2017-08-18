@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: 'settings', component: SettingsComponent }
 ];
 
 @NgModule({
@@ -16,7 +18,8 @@ const appRoutes: Routes = [
     AppComponent,
     AboutComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    SettingsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

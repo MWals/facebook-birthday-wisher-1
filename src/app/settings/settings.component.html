@@ -1,0 +1,8 @@
+<h3><b>Birthday Messages</b></h3>
+<ul *ngIf="facebookBirthdayMessages.length > 0">
+  <li *ngFor="let facebookBirthdayMessage of facebookBirthdayMessages">
+    <input type="checkbox" value="{{facebookBirthdayMessage}}" [checked]="check(facebookBirthdayMessage)" (click)="save($event)">
+    {{facebookBirthdayMessage}}
+  </li>
+</ul>
+<p *ngIf="facebookBirthdayMessages.length == 0">Loading...</p>
