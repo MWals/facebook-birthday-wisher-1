@@ -1,27 +1,42 @@
 {
   "name": "Facebook Birthday Wisher",
   "description": "A Chrome Extension to automatically wish your friends on their birthdays.",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "browser_action": {
     "default_icon": "logo.png"
   },
-   "permissions": [
-       "contextMenus", "tabs", "<all_urls>", "activeTab", "webNavigation", "storage", "unlimitedStorage"
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "<all_urls>",
+    "activeTab",
+    "webNavigation",
+    "storage",
+    "unlimitedStorage"
   ],
   "background": {
-    "scripts": ["background_scripts/extension.js"]
+    "scripts": [
+      "background_scripts/extension.js"
+    ]
   },
-    "icons": {
-          "16": "logo.png",
-          "48": "logo.png",
-          "128": "logo.png"
-        },
-
-   "content_scripts": [
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+  "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content_scripts/jquery.js", "content_scripts/birthdayMessages.js", "content_scripts/listener.js"],
-	  "run_at": "document_start"
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content_scripts/jquery.js",
+        "content_scripts/birthdayMessages.js",
+        "content_scripts/wish.js",
+        "content_scripts/resources.js",
+        "content_scripts/listener.js"
+      ],
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
