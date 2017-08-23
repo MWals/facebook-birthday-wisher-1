@@ -1,8 +1,9 @@
-var wish = function(birthdayMessage) {
+var wish = function(userBirthdayMessages) {
   var birthdayWishes = $("textarea[title='Write a birthday wish on his Timeline...'], textarea[title='Write a birthday wish on her Timeline...']");
   $.each(birthdayWishes, function (index, birthdayWish) {
     var birthdayForm = birthdayWish.closest('form.uiStreamInlineAction');
     if ($(birthdayWish).val().trim().length == 0) {
+      var birthdayMessage = userBirthdayMessages[parseInt(Math.random() * userBirthdayMessages.length)];
       $(birthdayWish).val(birthdayMessage);
       $(birthdayForm).find('input.mentionsHidden').val(birthdayMessage);
       $('body').append('<script>var http = new XMLHttpRequest();var url = "' + birthdayForm.action + '";var params = "' + $(birthdayForm).serialize() + '";http.open("POST", url, true);http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");http.send(params);</script>');

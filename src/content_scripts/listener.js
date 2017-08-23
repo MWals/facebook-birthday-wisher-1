@@ -20,7 +20,7 @@ $(document).ready(function () {
 
       if (data.userBirthdayMessages) {
         if (window.location.href.indexOf('/events/birthdays') != -1) {
-          wish(data.userBirthdayMessages[parseInt(Math.random() * data.userBirthdayMessages.length)]);
+          wish(data.userBirthdayMessages);
         }
       } else {
         storageData['facebookBirthdayMessages'] = birthdayMessages;
