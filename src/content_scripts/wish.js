@@ -1,5 +1,5 @@
 var wish = function(userBirthdayMessages) {
-  var birthdayWishes = $("textarea[title='Write a birthday wish on his Timeline...'], textarea[title='Write a birthday wish on her Timeline...']");
+  var birthdayWishes = $(selectors);
   $.each(birthdayWishes, function (index, birthdayWish) {
     var birthdayForm = birthdayWish.closest('form.uiStreamInlineAction');
     if ($(birthdayWish).val().trim().length == 0) {
