@@ -16,7 +16,7 @@
   ],
   "background": {
     "scripts": [
-      "background_scripts/extension.js"
+      "background_script.js"
     ]
   },
   "icons": {
@@ -30,12 +30,8 @@
         "<all_urls>"
       ],
       "js": [
-        "content_scripts/jquery.js",
-        "content_scripts/birthdayMessages.js",
-        "content_scripts/selectors.js",
-        "content_scripts/wish.js",
-        "content_scripts/resources.js",
-        "content_scripts/listener.js"
+        "jquery.min.js",
+        "content_script.js"
       ],
       "run_at": "document_start"
     }
