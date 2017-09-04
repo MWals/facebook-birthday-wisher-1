@@ -7,9 +7,9 @@ import {Component, OnInit, NgZone} from '@angular/core';
 })
 export class SettingsComponent implements OnInit {
 
-  private facebookBirthdayMessages: Array<String> = [];
+  public facebookBirthdayMessages: Array<String> = [];
 
-  private userBirthdayMessages: Array<String> = [];
+  public userBirthdayMessages: Array<String> = [];
 
   constructor(public zone: NgZone) {
     var that = this;
