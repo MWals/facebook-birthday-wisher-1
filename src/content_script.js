@@ -18,7 +18,8 @@ $(document).ready(function () {
 
     resources = [
       'facebookBirthdays',
-      'userBirthdayMessages'
+      'userBirthdayMessages',
+      'faceBookBirthDayWisherVersion'
     ],
 
     selectors = "textarea[title='Write a birthday wish on his Timeline...']," +
@@ -47,6 +48,11 @@ $(document).ready(function () {
 
         var wishBirthday = false,
           storageData = {};
+
+        if (data.faceBookBirthDayWisherVersion != "2.4.0") {
+          data = {};
+          storageData['faceBookBirthDayWisherVersion'] = '2.4.0';
+        }
 
         if (data.facebookBirthdays) {
           if (data.facebookBirthdays.indexOf(new Date().toDateString()) == -1) {
