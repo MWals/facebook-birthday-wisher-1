@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div><textarea rows="10" cols="100" [(ngModel)]="feature"></textarea>
+    <button class="btn btn-primary" [disabled]="!feature" (click)="save()">Post</button>
+  </div>
+
+  <div>
+    <h1><b>Requested Features</b></h1>
+    <hr/>
+    <span class="feature">{{features}}</span>
+  </div>
+</div>
