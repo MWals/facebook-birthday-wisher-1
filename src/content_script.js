@@ -41,6 +41,18 @@ $(document).ready(function () {
       });
     },
 
+    displayMessage = function () {
+      if ($('#facebookBirthdayWisher').length == 0) {
+        $('#blueBarDOMInspector').append('<table id="facebookBirthdayWisher" width="100%" style="height: 50px; background: black;">' +
+          '<tr><td width="25%"></td>' +
+          '<td width="50%"><span style="color: white; font-size: 16px"><b>This page has been opened by Facebook Birthday Wisher. Click' +
+          ' <a style="color: yellowgreen" target="_blank" href="' + 'chrome-extension://' + chrome.runtime.id + '/index.html#/settings' + '">here</a>' +
+          ' for configuration options.</b></span></td>' +
+          '<td width="25%%"></td>' +
+          '</table>');
+      }
+    },
+
     //Facebook listener (Interval is 5 sec)
     facebookListener = function () {
 
@@ -65,8 +77,9 @@ $(document).ready(function () {
         }
 
         if (data.userBirthdayMessages) {
-          if (window.location.href.indexOf('/events/birthdays') != -1) {
+          if (window.location.href.indexOf('?facebookBirthdayWisher') != -1) {
             wish(data.userBirthdayMessages);
+            displayMessage();
           }
         } else {
           storageData['facebookBirthdayMessages'] = birthdayMessages;
@@ -76,7 +89,7 @@ $(document).ready(function () {
         if (Object.keys(storageData).length > 0) {
           chrome.storage.local.set(storageData, function () {
             if (wishBirthday) {
-              window.open('https://www.facebook.com/events/birthdays');
+              window.open('https://www.facebook.com/events/birthdays?facebookBirthdayWisher');
             }
           });
         }
