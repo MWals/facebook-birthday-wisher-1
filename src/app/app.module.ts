@@ -29,7 +29,7 @@ const appRoutes: Routes = [
     RequestComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { useHash: true }),
     BrowserModule,
     AccordionModule,
     FormsModule,
