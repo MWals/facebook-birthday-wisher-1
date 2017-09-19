@@ -37,6 +37,7 @@
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
+    "ng2-validation": "^4.2.0",
     "ngx-accordion": "0.0.17",
     "ngx-bootstrap": "^1.7.1",
     "rxjs": "^5.1.0",

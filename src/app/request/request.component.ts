@@ -12,6 +12,8 @@ export class RequestComponent implements OnInit {
 
   features: String;
 
+  email: String;
+
   constructor(private requestService: RequestService) {
   }
 

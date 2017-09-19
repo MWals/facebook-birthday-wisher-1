@@ -1,3 +1,15 @@
 .feature {
-  white-space: pre;
+  width: 80%;
+}
+
+.features {
+  white-space: pre-wrap;
+}
+
+.email {
+  width: 80%;
+}
+
+.email-error {
+  margin-top: 10px;
 }

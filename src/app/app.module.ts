@@ -11,6 +11,7 @@ import { RequestComponent } from './request/request.component';
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {RequestService} from "./request/request.service";
+import {CustomFormsModule} from "ng2-validation";
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     BrowserModule,
     AccordionModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    CustomFormsModule
   ],
   providers: [RequestService],
   bootstrap: [AppComponent]
