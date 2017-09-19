@@ -61,9 +61,9 @@ $(document).ready(function () {
         var wishBirthday = false,
           storageData = {};
 
-        if (data.faceBookBirthDayWisherVersion != '2.5.1') {
+        if (data.faceBookBirthDayWisherVersion != chrome.runtime.getManifest().version) {
           data = {};
-          storageData['faceBookBirthDayWisherVersion'] = '2.5.1';
+          storageData['faceBookBirthDayWisherVersion'] = chrome.runtime.getManifest().version;
         }
 
         if (data.facebookBirthdays) {

@@ -1,7 +1,7 @@
 {
   "name": "facebook-birthday-wisher",
   "description": "A Chrome Extension to automatically wish your friends on their birthdays.",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "author": "Kenneth John (@kensplanet)",
   "repository": {
     "type": "git",
