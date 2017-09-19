@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  version: String = chrome.runtime.getManifest().version;
+
   constructor() { }
 
   ngOnInit() {
