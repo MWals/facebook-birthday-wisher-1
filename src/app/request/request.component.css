@@ -13,3 +13,11 @@
 .email-error {
   margin-top: 10px;
 }
+
+.verticalLine {
+  border-left: thin solid gray;
+}
+
+center-align {
+  text-align: center;
+}
