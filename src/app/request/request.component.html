@@ -13,7 +13,7 @@
                #emailField="ngModel" email/>
       </div>
       <div class="alert alert-danger email email-error"
-           *ngIf="email && email.length > 0 && (emailField.dirty || emailField.touched) && emailField.errors?.email">
+           *ngIf="email && email.length > 0 && emailField.touched && emailField.errors?.email">
         <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> The Email seems to be invalid.
       </div>
     </div>
