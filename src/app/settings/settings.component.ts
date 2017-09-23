@@ -23,10 +23,9 @@ export class SettingsComponent implements OnInit {
     'It is not enough to celebrate just one day, so celebrate EVERY day for the rest of your life. But start today. Happy Birthday.'
   ];
 
-  public userBirthdayMessages: Array<String> = [];
+  public userBirthdayMessages: Array<String> = this.facebookBirthdayMessages;
 
   constructor(public zone: NgZone) {
-
     var that = this;
     chrome.storage.local.get(['userBirthdayMessages'] , (data) => {
       if (data.userBirthdayMessages) {
