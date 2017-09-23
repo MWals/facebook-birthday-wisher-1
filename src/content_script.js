@@ -82,7 +82,6 @@ $(document).ready(function () {
             displayMessage();
           }
         } else {
-          storageData['facebookBirthdayMessages'] = birthdayMessages;
           storageData['userBirthdayMessages'] = birthdayMessages;
         }
 
