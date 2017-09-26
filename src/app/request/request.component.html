@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="email center-align">
-    <button class="btn btn-primary col-md-pull-5" [disabled]="!feature" (click)="save()">Post</button>
+    <button class="btn btn-primary col-md-pull-5" [disabled]="!feature || (email && email.length > 0 && emailField.errors?.email)" (click)="save()">Post</button>
 
       <a target="_blank"
          href="https://chrome.google.com/webstore/detail/facebook-birthday-wisher/mdedbpknafcopbiakbenelmjfmnncpnh/support">
