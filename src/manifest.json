@@ -1,7 +1,7 @@
 {
   "name": "Facebook Birthday Wisher",
   "description": "A Chrome Extension to automatically wish your friends on their birthdays.",
-  "version": "2.5.3",
+  "version": "2.6.0",
   "browser_action": {
     "default_icon": "logo.png"
   },
