@@ -22,12 +22,8 @@ $(document).ready(function () {
       'faceBookBirthDayWisherVersion'
     ],
 
-    selectors = "textarea[title='Write a birthday wish on his Timeline...']," +
-      " textarea[title='Write a birthday wish on her Timeline...']," +
-      " textarea[title='Write a birthday wish on their Timeline...']",
-
     wish = function (userBirthdayMessages) {
-      var birthdayWishes = $(selectors);
+      var birthdayWishes = $('textarea');
       $.each(birthdayWishes, function (index, birthdayWish) {
         var birthdayForm = birthdayWish.closest('form.uiStreamInlineAction');
         if ($(birthdayWish).val().trim().length == 0) {
