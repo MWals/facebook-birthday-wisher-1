@@ -19,7 +19,7 @@ $(document).ready(function () {
     resources = [
       'facebookBirthdays',
       'userBirthdayMessages',
-      'faceBookBirthDayWisherVersion'
+      'version'
     ],
 
     wish = function (userBirthdayMessages) {
@@ -57,9 +57,9 @@ $(document).ready(function () {
         var wishBirthday = false,
           storageData = {};
 
-        if (data.faceBookBirthDayWisherVersion != chrome.runtime.getManifest().version) {
+        if (data.version != chrome.runtime.getManifest().version) {
           data = {};
-          storageData['faceBookBirthDayWisherVersion'] = chrome.runtime.getManifest().version;
+          storageData['version'] = chrome.runtime.getManifest().version;
         }
 
         if (data.facebookBirthdays) {
