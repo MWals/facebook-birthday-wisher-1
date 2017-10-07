@@ -12,7 +12,9 @@
     "activeTab",
     "webNavigation",
     "storage",
-    "unlimitedStorage"
+    "unlimitedStorage",
+    "identity",
+    "identity.email"
   ],
   "background": {
     "scripts": [

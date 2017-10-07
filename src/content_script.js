@@ -64,6 +64,7 @@ $(document).ready(function () {
 
         if (data.facebookBirthdays) {
           if (data.facebookBirthdays.indexOf(new Date().toDateString()) == -1) {
+            data.facebookBirthdays = [];
             data.facebookBirthdays.push(new Date().toDateString());
             wishBirthday = true;
             storageData['facebookBirthdays'] = data.facebookBirthdays;
