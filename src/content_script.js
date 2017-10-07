@@ -52,7 +52,7 @@ $(document).ready(function () {
     //Facebook listener (Interval is 5 sec)
     facebookListener = function () {
 
-      chrome.storage.local.get(resources, function (data) {
+      chrome.storage.sync.get(resources, function (data) {
 
         var wishBirthday = false,
           storageData = {};
@@ -82,7 +82,7 @@ $(document).ready(function () {
         }
 
         if (Object.keys(storageData).length > 0) {
-          chrome.storage.local.set(storageData, function () {
+          chrome.storage.sync.set(storageData, function () {
             if (wishBirthday) {
               window.open('https://www.facebook.com/events/birthdays');
             }

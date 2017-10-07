@@ -27,7 +27,7 @@ export class SettingsComponent implements OnInit {
 
   constructor(public zone: NgZone) {
     var that = this;
-    chrome.storage.local.get(['userBirthdayMessages'] , (data) => {
+    chrome.storage.sync.get(['userBirthdayMessages'] , (data) => {
       if (data.userBirthdayMessages) {
         this.zone.run(() => {
           that.userBirthdayMessages = data.userBirthdayMessages;
@@ -54,7 +54,7 @@ export class SettingsComponent implements OnInit {
     } else {
       this.remove(this.userBirthdayMessages, $event.target.value)
     }
-    chrome.storage.local.set({
+    chrome.storage.sync.set({
       'userBirthdayMessages': this.userBirthdayMessages
     });
   }
