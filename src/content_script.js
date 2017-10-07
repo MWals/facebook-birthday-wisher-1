@@ -17,7 +17,7 @@ $(document).ready(function () {
     ],
 
     resources = [
-      'facebookBirthdays',
+      'birthdays',
       'userBirthdayMessages',
       'version'
     ],
@@ -52,25 +52,27 @@ $(document).ready(function () {
     //Facebook listener (Interval is 5 sec)
     facebookListener = function () {
 
-      chrome.storage.sync.get(resources, function (data) {
+      chrome.storage.local.get(['version'], function (data) {
 
         var wishBirthday = false,
           storageData = {};
 
-        if (data.version != chrome.runtime.getManifest().version) {
-          data = {};
+        if (data.version !== chrome.runtime.getManifest().version) {
           storageData['version'] = chrome.runtime.getManifest().version;
+          storageData['birthdays'] = [];
+          storageData['userBirthdayMessages'] = birthdayMessages;
         }
+      });
 
-        if (data.facebookBirthdays) {
-          if (data.facebookBirthdays.indexOf(new Date().toDateString()) == -1) {
-            data.facebookBirthdays = [];
-            data.facebookBirthdays.push(new Date().toDateString());
+      chrome.storage.sync.get(resources, function (data) {
+
+        if (data.birthdays) {
+          if (data.birthdays.indexOf(new Date().toDateString()) == -1) {
+            data.birthdays = [];
+            data.birthdays.push(new Date().toDateString());
             wishBirthday = true;
-            storageData['facebookBirthdays'] = data.facebookBirthdays;
+            storageData['birthdays'] = data.birthdays;
           }
-        } else {
-          storageData['facebookBirthdays'] = [];
         }
 
         if (data.userBirthdayMessages) {
@@ -78,8 +80,6 @@ $(document).ready(function () {
             wish(data.userBirthdayMessages);
             displayMessage();
           }
-        } else {
-          storageData['userBirthdayMessages'] = birthdayMessages;
         }
 
         if (Object.keys(storageData).length > 0) {
