@@ -16,12 +16,6 @@ $(document).ready(function () {
       'It is not enough to celebrate just one day, so celebrate EVERY day for the rest of your life. But start today. Happy Birthday.'
     ],
 
-    resources = [
-      'birthdays',
-      'userBirthdayMessages',
-      'version'
-    ],
-
     wish = function (userBirthdayMessages) {
       var birthdayWishes = $('textarea');
       $.each(birthdayWishes, function (index, birthdayWish) {
@@ -52,26 +46,15 @@ $(document).ready(function () {
     //Facebook listener (Interval is 5 sec)
     facebookListener = function () {
 
-      chrome.storage.local.get(['version'], function (data) {
-
-        var wishBirthday = false,
-          storageData = {};
-
-        if (data.version !== chrome.runtime.getManifest().version) {
-          storageData['version'] = chrome.runtime.getManifest().version;
-          storageData['birthdays'] = [];
-          storageData['userBirthdayMessages'] = birthdayMessages;
-        }
-      });
-
-      chrome.storage.sync.get(resources, function (data) {
+      chrome.storage.sync.get(['birthdays', 'userBirthdayMessages'], function (data) {
 
         if (data.birthdays) {
           if (data.birthdays.indexOf(new Date().toDateString()) == -1) {
-            data.birthdays = [];
-            data.birthdays.push(new Date().toDateString());
-            wishBirthday = true;
-            storageData['birthdays'] = data.birthdays;
+            chrome.storage.sync.set(storageData, function () {
+              if (wishBirthday) {
+                window.open('https://www.facebook.com/events/birthdays');
+              }
+            });
           }
         }
 
@@ -80,14 +63,6 @@ $(document).ready(function () {
             wish(data.userBirthdayMessages);
             displayMessage();
           }
-        }
-
-        if (Object.keys(storageData).length > 0) {
-          chrome.storage.sync.set(storageData, function () {
-            if (wishBirthday) {
-              window.open('https://www.facebook.com/events/birthdays');
-            }
-          });
         }
       });
     };
