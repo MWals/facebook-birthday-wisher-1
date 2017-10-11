@@ -20,7 +20,7 @@ chrome.browserAction.onClicked.addListener(function () {
 
 // Set default values on Chrome storage on extension installation
 chrome.runtime.onInstalled.addListener(function (details) {
-  if (details.reason === "install") {
+  if (details.reason === "install" || details.reason === "install") {
     chrome.storage.sync.set({
       'facebookBirthdayMessages': birthdayMessages,
       'userBirthdayMessages': birthdayMessages,
