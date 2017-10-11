@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, NgZone} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public loggedIn: boolean = true;
+
+  constructor(public zone: NgZone) {
+    var that = this;
+    chrome.identity.getProfileUserInfo(function (userInfo) {
+      if (userInfo.email.trim().length == 0) {
+        that.zone.run(() => {
+          that.loggedIn = false;
+        });
+      }
+    })
+  }
 
   ngOnInit() {
+
   }
 
 }
