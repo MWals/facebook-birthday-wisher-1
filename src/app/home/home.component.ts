@@ -9,6 +9,8 @@ export class HomeComponent implements OnInit {
 
   public loggedIn: boolean = true;
 
+  public lastWished: number;
+
   constructor(public zone: NgZone) {
     var that = this;
     chrome.identity.getProfileUserInfo(function (userInfo) {
@@ -17,7 +19,12 @@ export class HomeComponent implements OnInit {
           that.loggedIn = false;
         });
       }
-    })
+    });
+    chrome.storage.sync.get(['lastWished'], (data) => {
+      that.zone.run(() => {
+        that.lastWished = data.lastWished;
+      });
+    });
   }
 
   ngOnInit() {

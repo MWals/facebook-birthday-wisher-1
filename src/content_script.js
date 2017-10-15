@@ -32,11 +32,14 @@ $(document).ready(function () {
 
       chrome.storage.sync.get(['birthdays', 'userBirthdayMessages'], function (data) {
 
-        var today = new Date().toDateString();
+        var now = new Date(),
+          time = now.getTime(),
+          today = now.toDateString();
 
         if (data.birthdays !== today) {
           chrome.storage.sync.set({
-            'birthdays': today
+            'birthdays': today,
+            'lastWished': time
           }, function () {
             window.open('https://www.facebook.com/events/birthdays');
           });

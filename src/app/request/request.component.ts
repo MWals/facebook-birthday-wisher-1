@@ -17,6 +17,7 @@ export class RequestComponent implements OnInit {
   constructor(private requestService: RequestService) {
   }
 
+
   ngOnInit() {
     this.get();
   }

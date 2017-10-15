@@ -13,6 +13,7 @@ import {HttpModule} from "@angular/http";
 import {RequestService} from "./request/request.service";
 import {CustomFormsModule} from "ng2-validation";
 import { AlertModule } from 'ngx-bootstrap/alert';
+import {MomentModule} from "angular2-moment";
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     CustomFormsModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    MomentModule
   ],
   providers: [RequestService],
   bootstrap: [AppComponent]
