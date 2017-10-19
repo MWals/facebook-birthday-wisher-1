@@ -11,7 +11,12 @@ var birthdayMessages = [
   'They say you lose your memory as you grow older. I say forget about the past and live life to the fullest today. Start with ice cream. Happy Birthday.',
   'May you create a memory today that becomes your happy place in all the many years yet to come. Happy Birthday.',
   'Live your life sharing the beauty and happiness that you have today and every day. Happy Birthday.',
-  'It is not enough to celebrate just one day, so celebrate EVERY day for the rest of your life. But start today. Happy Birthday.'
+  'It is not enough to celebrate just one day, so celebrate EVERY day for the rest of your life. But start today. Happy Birthday.',
+  'May your birthday mark the beginning of a wonderful period of time in your life!',
+  'May your special day be filled with tons of Happy moments and beautiful flowers, Good friends and joyful hours! Wishing you a very Happy Birthday!',
+  'Wishing you a birthday filled with sweet moments and wonderful memories to cherish always!',
+  'A birthday is just the first day of another 365-day journey around the sun. Enjoy the trip... Happy Birthday...',
+  'A birthday is one of the most important days of the year- may yours be filled with the light of living and the brightness of laughter. Happy Birthday'
 ];
 
 chrome.browserAction.onClicked.addListener(function () {
