@@ -5,12 +5,13 @@
 </alert>
 
 <div align="center">
-  <p *ngIf="lastWished">
+  <alert type="info" *ngIf="lastWished">
+    <i class="fa fa-birthday-cake" aria-hidden="true"></i>
     You last wished on  {{lastWished | amDateFormat:'LL'}} ({{lastWished| amTimeAgo}})
-  </p>
-  <p *ngIf="!lastWished">
+  </alert>
+  <alert type="danger" *ngIf="!lastWished">
     You haven't wished anyone yet. Click the button below to wish your friends on Facebook.
-  </p>
+  </alert>
 </div>
 
 <p align="center"><a target="_blank" href="https://www.facebook.com/events/birthdays">
