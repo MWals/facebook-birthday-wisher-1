@@ -4,6 +4,16 @@
   (<a href="https://support.google.com/chrome/answer/185277" target="_blank">Learn More</a>)
 </alert>
 
+<div align="center">
+  <alert type="info" *ngIf="lastWished">
+    <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+    You last wished on  {{lastWished | amDateFormat:'LL'}} ({{lastWished| amTimeAgo}})
+  </alert>
+  <alert type="danger" *ngIf="!lastWished">
+    You haven't wished anyone yet. Click the button below to wish your friends on Facebook.
+  </alert>
+</div>
+
 <p align="center"><a target="_blank" href="https://www.facebook.com/events/birthdays">
   <button class="btn btn-primary">
     Wish Birthdays

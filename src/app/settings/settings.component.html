@@ -1,4 +1,7 @@
 <h3><b>Birthday Messages</b></h3>
+<alert type="info">
+  <i class="fa fa-info-circle" aria-hidden="true"></i> Random birthday message will be selected from the messages checked below only.
+</alert>
 <ul *ngIf="facebookBirthdayMessages.length > 0">
   <li *ngFor="let facebookBirthdayMessage of facebookBirthdayMessages">
     <input type="checkbox" value="{{facebookBirthdayMessage}}" [checked]="check(facebookBirthdayMessage)" (click)="save($event)">
