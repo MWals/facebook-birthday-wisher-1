@@ -27,6 +27,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  wishBirthday() {
+    chrome.runtime.sendMessage({message: 'wishBirthday'});
+  }
+
   ngOnInit() {
 
   }

@@ -13,6 +13,7 @@
         "content_script.js",
         "logo.png",
         "manifest.json",
+        "content_script.js",
         { "glob": "jquery.min.js", "input": "../node_modules/jquery/dist", "output": "." }
       ],
       "index": "index.html",

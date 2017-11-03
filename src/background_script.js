@@ -32,3 +32,46 @@ chrome.runtime.onInstalled.addListener(function (details) {
     });
   }
 });
+
+chrome.windows.onCreated.addListener(function () {
+  facebookListener();
+});
+
+chrome.tabs.onCreated.addListener(function () {
+  facebookListener();
+});
+
+chrome.runtime.onMessage.addListener(
+  function (request) {
+    if (request.message == "wishBirthday") {
+      chrome.storage.sync.set({
+        'birthdays': null
+      }, function() {
+        facebookListener();
+      });
+    }
+  });
+
+var facebookListener = function () {
+
+  chrome.storage.sync.get(['birthdays', 'userBirthdayMessages'], function (data) {
+
+    var now = new Date(),
+      time = now.getTime(),
+      today = now.toDateString();
+
+    if (data.birthdays !== today) {
+      chrome.storage.sync.set({
+        'birthdays': today,
+        'lastWished': time
+      }, function () {
+        chrome.tabs.create({'url': 'https://www.facebook.com/events/birthdays'}, function (tab) {
+          chrome.tabs.executeScript(tab.id, {
+            file: 'content_script.js',
+            runAt: 'document_end'
+          })
+        });
+      });
+    }
+  });
+};
