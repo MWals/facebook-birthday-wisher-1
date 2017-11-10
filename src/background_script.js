@@ -38,7 +38,7 @@ chrome.windows.onCreated.addListener(function () {
 });
 
 chrome.tabs.onCreated.addListener(function () {
-  facebookListener();
+
 });
 
 chrome.runtime.onMessage.addListener(
